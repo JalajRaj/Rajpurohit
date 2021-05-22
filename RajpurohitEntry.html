@@ -70,17 +70,51 @@
                 <input type="text" id="Citi" class="form-control" placeholder="Cities/Towns/Villages Name (शहरों/कस्बों/गांवों का नाम)">
                 <input type="text" id="Gotra" class="form-control" placeholder="Gotra (गोत्र)">
                 <input type="text" id="Age" class="form-control" placeholder="Age (उम्र)">
-                <input type="text" id="Gender" class="form-control" placeholder="Gender (लिंग)">
+                
+                <select name="Gender" id="Gender"  class="form-control" >
+                     <option value="Gender"> Select Gender </option> 
+                     <option value="Male"> Male </option> 
+                     <option value="Female">Female</option>
+                </select>
+                <br>
                 <input type="text" id="Mobile" class="form-control" placeholder="Mobile Number (मोबाइल नंबर)">
                 <input type="email" id="Email" class="form-control" placeholder="Email Address (ईमेल पता)">
                 <input type="text" id="Occupation" class="form-control" placeholder="Occupation (व्यवसाय)">
     
-                <textarea id="Occupation" class="form-control" placeholder="Remark (टिप्पणी)"></textarea>
+                <select name="Occupation" id="Occupation"  class="form-control" >
+                    <option value="Occupation"> Select Occupation (व्यवसाय) </option> 
+                    <option value="Medical Professionals (Doctors)">  Medical Professionals (Doctors) </option> 
+                    <option value="Teacher">Teacher</option>
+                    <option value="Advocate">Advocate</option>
+                    <option value="IT Department">IT Department</option>
+                    <option value="Banking">Banking</option>
+                    <option value="Chartered Accountant">Chartered Accountant</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Management Activity">Management Activity</option>
+                    <option value="Other">Other</option>
+               </select>
+               <br>
+                <textarea id="Remark" class="form-control" placeholder="Remark (टिप्पणी)"></textarea>
 
                 <br>
                 <h4> Vaccination Details (टीकाकरण विवरण) </h4>
-                <input type="text" id="AgeGroup" class="form-control" placeholder="Age Group (आयु समूह)">
-                <input type="text" id="Vaccinationstatus" class="form-control" placeholder="Vaccination status (टीकाकरण की स्थिति)">
+                
+                <select name="AgeGroup" id="AgeGroup"  class="form-control" >
+                    <option value="AgeGroup"> Select Age Group (आयु समूह) </option> 
+                    <option value="Above 60"> Above 60 </option> 
+                    <option value="45 To 60">45 To 60</option>
+                    <option value="18 To 44">18 To 44</option>
+                    <option value="Below 18">Below 18</option>
+               </select>
+               <br>
+                
+                <select name="Vaccinationstatus" id="Vaccinationstatus"  class="form-control" >
+                    <option value="Vaccinationstatus"> Select Vaccination status (टीकाकरण की स्थिति) </option> 
+                    <option value="Pending"> Pending </option> 
+                    <option value="Dose-1">Dose-1</option>
+                    <option value="Dose-1">Dose-2</option>
+               </select>
+               
 
                 <br>
                 <h4> Fund Status (फंड की स्थिति) </h4>
