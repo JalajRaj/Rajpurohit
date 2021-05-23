@@ -65,12 +65,12 @@
             <div class="col-lg-6" id="contact" </div>
                 <h4> Data Entry </h4>
 				<form id="formDataid">
-                <input type="text" name="name" class="form-control" placeholder="Full Name (नाम)">
-                <input type="text" name="fname" class="form-control" placeholder="Father Name (पिता का नाम)">
-                <input type="text" name="address" class="form-control" placeholder="Address (पता)">
-                <input type="text" name="city" class="form-control" placeholder="Cities/Towns/Villages Name (शहरों/कस्बों/गांवों का नाम)">
-                <input type="text" name="gotra" class="form-control" placeholder="Gotra (गोत्र)">
-                <input type="text" name="age" class="form-control" placeholder="Age (उम्र)">
+                <input type="text" name="name" class="form-control" maxlength="30" placeholder="Full Name (नाम)">
+                <input type="text" name="fname" class="form-control" maxlength="30"placeholder="Father Name (पिता का नाम)">
+                <input type="text" name="address" class="form-control" maxlength="100" placeholder="Address (पता)">
+                <input type="text" name="city" class="form-control" maxlength="15" placeholder="Cities/Towns/Villages Name (शहरों/कस्बों/गांवों का नाम)">
+                <input type="text" name="gotra" class="form-control" maxlength="15" placeholder="Gotra (गोत्र)">
+                <input type="text" name="age" class="form-control" maxlength="3" placeholder="Age (उम्र)">
                 
                 <select name="gender" class="form-control" >
                      <option value="-1"> Select Gender </option> 
@@ -78,8 +78,8 @@
                      <option value="Female">Female</option>
                 </select>
                 <br>
-                <input type="text" name="mobile" class="form-control" placeholder="Mobile Number (मोबाइल नंबर)">
-                <input type="email" name="email" class="form-control" placeholder="Email Address (ईमेल पता)">
+                <input type="text" name="mobile" class="form-control" maxlength="10" placeholder="Mobile Number (मोबाइल नंबर)">
+                <input type="email" name="email" class="form-control" maxlength="30" placeholder="Email Address (ईमेल पता)">
                 <select name="occupation" class="form-control" >
                     <option value="-1"> Select Occupation (व्यवसाय) </option> 
                     <option value="Medical Professionals (Doctors)">  Medical Professionals (Doctors) </option> 
@@ -93,7 +93,7 @@
                     <option value="Other">Other</option>
                </select>
                <br>
-                <textarea name="remark" class="form-control" placeholder="Remark (टिप्पणी)"></textarea>
+                <textarea name="remark" class="form-control" maxlength="200" placeholder="Remark (टिप्पणी)"></textarea>
 
                 <br>
                 <h4> Vaccination Details (टीकाकरण विवरण) </h4>
