@@ -1,5 +1,28 @@
 var serverURL="https://a8ok76592i.execute-api.ap-south-1.amazonaws.com/dev/rajpurohit/"
 function saveCustData(obj){
+
+
+	if($("#name").val() == '' ){
+		alert('Please enter your Name.');
+		$("#name").focus()
+		return false;
+		}
+	if($("#fname").val() == '' ){
+		alert('Please enter your Father Name.');
+		$("#fname").focus()
+		return false;
+		}
+	if($("#email").val() == '' ){
+		alert('Please enter a valid business email.');
+	  $("#email").focus()
+		return false;
+		}
+	if($("#mobile").val() == '' ){
+		alert('Please enter 10 digit Phone/Mobile Number.');
+		$("#mobile").focus()
+		return false;
+		}
+
 	
 	$(obj).attr('onclick', "");
 	$(obj).html('Please Wait....<i class="fa fa-angle-right" aria-hidden="true"></i>');
