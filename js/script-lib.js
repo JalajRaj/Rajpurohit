@@ -12,11 +12,27 @@ function saveCustData(obj){
 		$("#fname").focus()
 		return false;
 		}
-	if($("#email").val() == '' ){
-		alert('Please enter a valid business email.');
-	  $("#email").focus()
+	}
+	if($("#address").val() == '' ){
+		alert('Please enter your Home Address.');
+		$("#address").focus()
 		return false;
 		}
+	if($("#city").val() == '' ){
+		alert('Please enter your Cities/Towns/Villages name.');
+		$("#city").focus()
+		return false;
+		}
+	if($("#gotra").val() == '' ){
+		alert('Please enter a Gotra name.');
+	  $("#gotra").focus()
+		return false;
+		}
+	if($("#age").val() == '' ){
+			alert('Please enter your age.');
+			$("#age").focus()
+			return false;
+			}
 	if($("#mobile").val() == '' ){
 		alert('Please enter 10 digit Phone/Mobile Number.');
 		$("#mobile").focus()
