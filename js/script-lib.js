@@ -23,7 +23,7 @@ function saveCustData(obj){
 		$("#city").focus()
 		return false;
 		}
-	if($("#gotra").val() == '' ){
+	if($("#gotra").val() == null ){
 		alert('Please enter a Gotra name.');
 	  $("#gotra").focus()
 		return false;
