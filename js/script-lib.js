@@ -2,23 +2,22 @@ var serverURL="https://a8ok76592i.execute-api.ap-south-1.amazonaws.com/dev/rajpu
 function saveCustData(obj){
 
 
-	if($("#name").val() == '' ){
+	if($("#name").val() == null ){
 		alert('Please enter your Name.');
 		$("#name").focus()
 		return false;
 		}
-	if($("#fname").val() == '' ){
+	if($("#fname").val() == null ){
 		alert('Please enter your Father Name.');
 		$("#fname").focus()
 		return false;
 		}
-	}
-	if($("#address").val() == '' ){
+	if($("#address").val() == null ){
 		alert('Please enter your Home Address.');
 		$("#address").focus()
 		return false;
 		}
-	if($("#city").val() == '' ){
+	if($("#city").val() == null ){
 		alert('Please enter your Cities/Towns/Villages name.');
 		$("#city").focus()
 		return false;
@@ -28,12 +27,12 @@ function saveCustData(obj){
 	  $("#gotra").focus()
 		return false;
 		}
-	if($("#age").val() == '' ){
+	if($("#age").val() == null ){
 			alert('Please enter your age.');
 			$("#age").focus()
 			return false;
 			}
-	if($("#mobile").val() == '' ){
+	if($("#mobile").val() == null ){
 		alert('Please enter 10 digit Phone/Mobile Number.');
 		$("#mobile").focus()
 		return false;
