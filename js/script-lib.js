@@ -1,4 +1,4 @@
-var serverURL="https://a8ok76592i.execute-api.ap-south-1.amazonaws.com/dev/rajpurohit/"
+var serverURL="https://6azqonbehd.execute-api.ap-south-1.amazonaws.com/dev/rajpurohit/"
 function saveCustData(obj){
 
 
@@ -120,7 +120,7 @@ function fetchAllCustInfo(){
 			$("#displayTableDetails tbody").empty();
 			console.log(response)
 			$(response).each(function(i,obj){				
-					var tr="<tr><td data-type='number'><a href='javascript:void(0)' data-id="+$(obj).attr('id')+" onClick='getCustDetails(this)'>"+(++i)+"</a></td><td>"+$(obj).attr('name')+" "+$(obj).attr('fname')+"<br>Goatra: "+$(obj).attr('gotra')+"</td><td>"+$(obj).attr('mobile')+"</td><td>"+$(obj).attr('address')+" City: "+$(obj).attr('city')+"</td><td>Age: "+$(obj).attr('age')+"<br>Gender: "+$(obj).attr('gender')+"</td><td>Email: "+$(obj).attr('email')+"<br>Occupation: "+$(obj).attr('occupation')+"<br>Qualification: "+$(obj).attr('qualification')+"</td><td>Age Group: "+$(obj).attr('ageGroup')+"<br>VaccinationStatus: "+$(obj).attr('vaccinationstatus')+"</td><td>FundSubmitdate: "+$(obj).attr('fundSubmitdt')+"<br>Submit Fund: "+$(obj).attr('submitFund')+"<br>FundWithdrawaldate: "+$(obj).attr('fundWithdrawaldt')+"<br>FundWithdrawal: "+$(obj).attr('fundWithdrawal')+"</td><td>"+$(obj).attr('remark')+"</td></tr>";
+					var tr="<tr><td data-type='number'><a href='javascript:void(0)' data-id="+$(obj).attr('id')+" onClick='getCustDetails(this)'>"+(++i)+"</a></td><td>"+$(obj).attr('name')+" "+$(obj).attr('fname')+"<br>Gotra: "+$(obj).attr('gotra')+"</td><td>"+$(obj).attr('mobile')+"</td><td>"+$(obj).attr('address')+" City: "+$(obj).attr('city')+"</td><td>Age: "+$(obj).attr('age')+"<br>Gender: "+$(obj).attr('gender')+"</td><td>Email: "+$(obj).attr('email')+"<br>Occupation: "+$(obj).attr('occupation')+"<br>Qualification: "+$(obj).attr('qualification')+"</td><td>Age Group: "+$(obj).attr('ageGroup')+"<br>VaccinationStatus: "+$(obj).attr('vaccinationstatus')+"</td><td>FundSubmitdate: "+$(obj).attr('fundSubmitdt')+"<br>Submit Fund: "+$(obj).attr('submitFund')+"<br>FundWithdrawaldate: "+$(obj).attr('fundWithdrawaldt')+"<br>FundWithdrawal: "+$(obj).attr('fundWithdrawal')+"</td><td>"+$(obj).attr('remark')+"</td></tr>";
 					$("#displayTableDetails tbody").append(tr);	
 			});
 			
