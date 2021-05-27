@@ -28,7 +28,7 @@ function saveCustData(obj){
 		return false;
 		}
 	if($("[name='age']").val() == '' ){
-		alert('Please enter your age.');
+		alert('Please enter your DOB.');
 		$("[name='age']").focus()
 		return false;
 		}
