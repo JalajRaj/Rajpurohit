@@ -18,34 +18,18 @@ var footerSection =  '<footer class="container-fluid" style="margin-top:130px;pa
             '<div class="col-lg-6">'+
                 '<div class="row">'+
                     '<div class="col-6">'+
-                        '<h4>Company</h4>'+
-                        '<ul class="nav flex-column company-nav">'+
-                            '<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>'+
-                            '<li class="nav-item"><a class="nav-link" href="#">Services</a></li>'+
-                            '<li class="nav-item"><a class="nav-link" href="Contactus.html">Contact</a></li>'+
-                        '</ul>'+
-                    '</div>'+
-                    '<div class="col-6">'+
-                        '<h4>Services</h4>'+
-                        '<ul class="nav flex-column services-nav">'+
-                            '<li class="nav-item"><a class="nav-link" href="#">Building Planning</a></li>'+
-                            '<li class="nav-item"><a class="nav-link" href="#">Building Permission</a></li>'+
-                            '<li class="nav-item"><a class="nav-link" href="#">Building Construction</a></li>'+
-                            '<li class="nav-item"><a class="nav-link" href="#">Engineering Services</a></li>'+
-                        '</ul>'+
-                    '</div>'+
-                    '<div class="col-6">'+
                         '<h4>Location</h4>'+
                         '<ul class="nav flex-column services-nav">'+
                             '<li class="nav-item"><a class="nav-link" href="#">i-111, Deendyal Nagar, Ratlam (M.p.) </a></li>'+
                         '</ul>'+
                     '</div>'+
-                    '<div class="col-12">'+
-                        '<p>All Rights Reserved. Design by - www.3ddesignsstudio.com</p>'+
-                    '</div>'+
+                   
                 '</div>'+
             '</div>'+
         '</div>'+
+		'<div class="col-12">'+
+			'<p>All Rights Reserved. Design by - MP Rajpurohit</p>'+
+		'</div>'+
     '</div>'+
 '</footer>';
 
@@ -53,7 +37,7 @@ var footerSection =  '<footer class="container-fluid" style="margin-top:130px;pa
 var header = "";
 if(localStorage.getItem('i_username') == null){
 	header = '<nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav" >'+
-			'<div class="container"><a href="index.html" class="navbar-brand"><img src="images/InayaLogo.png" width=185 height="90" alt="" ></a>  '+
+			'<div class="container"><a href="index.html" class="navbar-brand"><img src="images/RajpurohitLogo.png" width=215 height="50" alt="" ></a>  '+
 				'<button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse" style="background-color: #01e6f8;"><span '+
 						'class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>'+
 				'<div id="my-nav" class="collapse navbar-collapse" style="flex-basis: inherit;flex-grow: inherit;">'+
@@ -77,9 +61,6 @@ if(localStorage.getItem('i_username') == null){
 					'<ul class="navbar-nav mr-auto">'+
 						'<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>'+
 						'<li class="nav-item"><a class="nav-link" href="superadmin-entry.html">Super Admin Entry</a></li>'+
-						'<li class="nav-item"><a class="nav-link" href="superadmin-create-admin.html">Admin User</a></li>'+
-						'<li class="nav-item"><a class="nav-link" href="admin-entry.html">Admin Entry</a></li>'+
-						'<li class="nav-item"><a class="nav-link" href="superadmin-transdetails.html">Transaction</a></li>'+
 						'<li class="nav-item"><a class="nav-link" href="changepassword.html">Change Password</a></li>'+
 					'</ul>'+
 					'<form class="form-inline my-2 my-lg-0">'+
