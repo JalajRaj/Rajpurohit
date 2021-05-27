@@ -37,8 +37,22 @@ function saveCustData(obj){
 		$("[name='mobile']").focus()
 		return false;
 		}
-
-	
+	if($("[name='occupation']").val() == -1 ){
+		alert('Please Select Occupation.');
+		$("[name='occupation']").focus()
+		return false;
+		}
+	if($("[name='ageGroup']").val() == -1 ){
+		alert('Please Select Age Group.');
+		$("[name='ageGroup']").focus()
+		return false;
+		}
+	if($("[name='vaccinationstatus']").val() == -1 ){
+		alert('Please Select Vaccination status.');
+		$("[name='vaccinationstatus']").focus()
+		return false;
+		}		
+			
 	$(obj).attr('onclick', "");
 	$(obj).html('Please Wait....<i class="fa fa-angle-right" aria-hidden="true"></i>');
 	$.ajax({
