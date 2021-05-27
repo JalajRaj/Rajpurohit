@@ -112,7 +112,9 @@ function getFormData($form){
     var indexed_array = {};
 
     $.map(unindexed_array, function(n, i){
-        indexed_array[n['name']] = n['value'];
+		if(! (n['name'] == 'id' && n['value'] == "")){
+			indexed_array[n['name']] = n['value'];
+		}
     });
 
     return indexed_array;

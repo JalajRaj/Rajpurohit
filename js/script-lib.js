@@ -51,22 +51,22 @@ function saveCustData(obj){
 		alert('Please Select Vaccination status.');
 		$("[name='vaccinationstatus']").focus()
 		return false;
-		}		
-			
+		}	
 	$(obj).attr('onclick', "");
 	$(obj).html('Please Wait....<i class="fa fa-angle-right" aria-hidden="true"></i>');
+	
 	$.ajax({
 			type: 'POST',
-			data: JSON.stringify(getFormData($("#formDataid"))),
-			url: serverURL + "raj_saveCustData",
+			data:'{"mobile":"' + $("[name='mobile']").val() + '"}',
+			url: serverURL + "raj_generateOTP",
 			success: function (response) {	
-				if("object" == typeof response){
-					alert("User Profile created successfully");	
-					
+				if("Y" == response){
+					oTPSend($("[name='mobile']").val(),obj);
 				}else{
-					alert(response)
+					alert("Error while Sending OTP");
+					$(obj).attr('onclick', "saveCustData(this)");
+					$(obj).html('Save <i class="fa fa-angle-right" aria-hidden="true"></i>');
 				}
-				location.reload();
 			},
 			error: function (response) {
 				alert("Error while Login "+response);
@@ -76,15 +76,40 @@ function saveCustData(obj){
 		});	
 }
 
-function getFormData($form){
-    var unindexed_array = $form.serializeArray();
-    var indexed_array = {};
+function oTPSend(mobile,obj){
+	var otp = prompt("Please enter OTP Send to Mobile No. "+mobile);
+	 if (otp != null) {	
+		verifyOTPandSave(obj,otp,mobile);
+	 }else{
+		 $(obj).attr('onclick', "saveCustData(this)");
+		 $(obj).html('Save <i class="fa fa-angle-right" aria-hidden="true"></i>');
+	 }
+}
 
-    $.map(unindexed_array, function(n, i){
-        indexed_array[n['name']] = n['value'];
-    });
-
-    return indexed_array;
+function verifyOTPandSave(obj,otp,mobile){
+	$(obj).attr('onclick', "");
+	$(obj).html('Please Wait....<i class="fa fa-angle-right" aria-hidden="true"></i>');
+	var map = getFormData($("#formDataid"));
+	map["otp"]=otp;
+	$.ajax({
+			type: 'POST',
+			data: JSON.stringify(map),
+			url: serverURL + "raj_saveCustData",
+			success: function (response) {	
+				if(response.startsWith("Sorry!")){
+					alert(response);	
+					oTPSend(mobile,obj)
+				}else{
+					alert(response);
+					location.reload();
+				}
+				
+			},
+			error: function (response) {
+				alert("Error while Login "+response);
+				
+			}
+		});		
 }
 
 function fetchAllCustInfo(){
@@ -95,7 +120,7 @@ function fetchAllCustInfo(){
 			$("#displayTableDetails tbody").empty();
 			console.log(response)
 			$(response).each(function(i,obj){				
-					var tr="<tr><td><a href='javascript:void(0)' onClick='getCustDetails(this)'>"+$(obj).attr('mobile')+"</a></td><td>"+$(obj).attr('name')+" "+$(obj).attr('fname')+"</td><td>"+$(obj).attr('gotra')+"</td><td>"+$(obj).attr('address')+" City: "+$(obj).attr('city')+"</td><td>Age: "+$(obj).attr('age')+"<br>Gender: "+$(obj).attr('gender')+"</td><td>Email: "+$(obj).attr('email')+"<br>Occupation: "+$(obj).attr('occupation')+"</td><td>Age Group: "+$(obj).attr('ageGroup')+"<br>VaccinationStatus: "+$(obj).attr('vaccinationstatus')+"</td><td>FundSubmitdate: "+$(obj).attr('fundSubmitdt')+"<br>Submit Fund: "+$(obj).attr('submitFund')+"<br>FundWithdrawaldate: "+$(obj).attr('fundWithdrawaldt')+"<br>FundWithdrawal: "+$(obj).attr('fundWithdrawal')+"</td><td>"+$(obj).attr('remark')+"</td></tr>";
+					var tr="<tr><td data-type='number'><a href='javascript:void(0)' data-id="+$(obj).attr('id')+" onClick='getCustDetails(this)'>"+(++i)+"</a></td><td>"+$(obj).attr('name')+" "+$(obj).attr('fname')+"<br>Goatra: "+$(obj).attr('gotra')+"</td><td>"+$(obj).attr('mobile')+"</td><td>"+$(obj).attr('address')+" City: "+$(obj).attr('city')+"</td><td>Age: "+$(obj).attr('age')+"<br>Gender: "+$(obj).attr('gender')+"</td><td>Email: "+$(obj).attr('email')+"<br>Occupation: "+$(obj).attr('occupation')+"<br>Qualification: "+$(obj).attr('qualification')+"</td><td>Age Group: "+$(obj).attr('ageGroup')+"<br>VaccinationStatus: "+$(obj).attr('vaccinationstatus')+"</td><td>FundSubmitdate: "+$(obj).attr('fundSubmitdt')+"<br>Submit Fund: "+$(obj).attr('submitFund')+"<br>FundWithdrawaldate: "+$(obj).attr('fundWithdrawaldt')+"<br>FundWithdrawal: "+$(obj).attr('fundWithdrawal')+"</td><td>"+$(obj).attr('remark')+"</td></tr>";
 					$("#displayTableDetails tbody").append(tr);	
 			});
 			
@@ -110,7 +135,7 @@ function fetchAllCustInfo(){
 
 function getCustDetails(obj){
 	var map={};
-	map["mobile"]=$(obj).html();
+	map["id"]=$(obj).attr('data-id');
 	
 	$.ajax({
 		type: 'POST',
@@ -127,9 +152,21 @@ function getCustDetails(obj){
 		},
 		error: function (response) {
 			alert("Error while updating data "+response);
-			checkErrorResp(response);
 		}
 	});	
-	
-	
+}
+
+
+function getMap(){
+	$.ajax({
+		type: 'POST',
+		url: serverURL + "raj_Map",
+		success: function (response) {
+			console.log(response);
+			
+		},
+		error: function (response) {
+			alert("Error while updating data "+response);
+		}
+	});	
 }

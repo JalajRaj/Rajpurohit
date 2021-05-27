@@ -66,6 +66,7 @@
                 <h4> Data Entry </h4>
 				<form id="formDataid">
                 <input type="text" name="name" class="form-control" maxlength="30" placeholder="Full Name (नाम) *">
+				<input type="hidden" name="id">
                 <input type="text" name="fname" class="form-control" maxlength="100"placeholder="F/O & W/O Name (पिता/पति का नाम) *">
                 <input type="text" name="address" class="form-control" maxlength="120" placeholder="Address (पता) *">
                 <input type="text" name="city" class="form-control" maxlength="30" placeholder="Cities/Towns/Villages Name (शहरों/कस्बों/गांवों का नाम) *">
@@ -144,9 +145,9 @@
 		<span id="recordDisplaylabal" style="float:left;margin-right:10px"></span><input style="float:left" id="Search" placeholder="Type to filter records"  type="text" required>
 			<table id="displayTableDetails" class="table table-striped table-bordered table-hover">
 				<thead>
+					<th><a href="javascript:void(0)" style="cursor: pointer;">Sr No</a></th>
+					<th><a href="javascript:void(0)" style="cursor: pointer;">Full name/ Goatra</a></th>
 					<th><a href="javascript:void(0)" style="cursor: pointer;">Mobile No</a></th>
-					<th><a href="javascript:void(0)" style="cursor: pointer;">Full name</a></th>
-					<th><a href="javascript:void(0)" style="cursor: pointer;">Goatra</a></th>
 					<th><a href="javascript:void(0)" style="cursor: pointer;">Address/City</a></th>
 					<th><a href="javascript:void(0)" style="cursor: pointer;">Age/Gender</a></th>
 					<th><a href="javascript:void(0)" style="cursor: pointer;">Email/Occupation</a></th>
@@ -180,8 +181,9 @@
 <!-- owl carousel js-->
 <script src="owl-carousel/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
-<script src="js/script-lib.js"></script>
 <script src="js/myutil.js"></script>
+<script src="js/script-lib.js"></script>
+
 <script>
 fetchAllCustInfo();
 initTableAttr();
