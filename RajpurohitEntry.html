@@ -15,9 +15,11 @@
     <!-- custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <title>Rajpurohit</title>
-    <style>
-
-    </style>
+    <script>
+		if (location.protocol == 'http:'){
+			  location.href = location.href.replace("http","https");
+		}
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
@@ -137,6 +139,22 @@
                 <input type="date" name="fundWithdrawaldt" class="form-control" placeholder="Fund withdrawal date (फंड निकालने की तारीख)">
                 <input type="text" name="fundWithdrawal" class="form-control" placeholder="withdrawal Fund (निकासी निधि)">
 				</form>
+				
+				<div class="row">
+				<div class="form-group name1 col-md-6">
+					<label for="exampleInputEmail1" class="formText">Upload Customer Photo:</label>
+					<input type="file" name="custPic1" id="custPic1" />
+					<input type="hidden" class="form-control" id="custPic" name="custPic" >
+				</div>
+
+				<div class="form-group name2 col-md-6">
+					<img id="custPic-orignal" width="500px" style="display:none">
+					<div class="image-sec-cust">
+						<img id="custPic-image" style="">
+					</div>
+				</div>
+			</div>
+			
                 <a href="javascript:void(0)" onclick="saveCustData(this);" class="submit-button">Save <i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </div>
         </div>
@@ -192,6 +210,14 @@
 <script>
 fetchAllCustInfo();
 initTableAttr();
+
+	var input2 = document.getElementById("custPic1");
+    input2.onchange = function() {
+		document.getElementById('custPic-image').src = '';
+		$(".image-sec-cust").append('<i class="fa fa-refresh fa-spin" style="font-size: 81px;color: #2e6da4;"></i>')
+		setTimeout(resizeCustPic,200);
+    };
+	
 </script>
 </body>
 </html>
