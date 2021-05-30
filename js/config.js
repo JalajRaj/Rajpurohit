@@ -20,7 +20,7 @@ var footerSection =  '<footer class="container-fluid" style="margin-top:130px;pa
                     '<div class="col-6">'+
                         '<h4>Location</h4>'+
                         '<ul class="nav flex-column services-nav">'+
-                            '<li class="nav-item"><a class="nav-link" href="#">i-111, Deendyal Nagar, Ratlam (M.p.) </a></li>'+
+                            '<li class="nav-item"><a class="nav-link" href="#">Rajpurohit Dharmashala, Ratlam (M.p.) </a></li>'+
                         '</ul>'+
                     '</div>'+
                    
@@ -28,84 +28,20 @@ var footerSection =  '<footer class="container-fluid" style="margin-top:130px;pa
             '</div>'+
         '</div>'+
 		'<div class="col-12">'+
-			'<p>All Rights Reserved. Design by - MP Rajpurohit</p>'+
+			'<p>All Rights Reserved. Design by - Rajpurohit</p>'+
 		'</div>'+
     '</div>'+
 '</footer>';
 
 
 var header = "";
-if(localStorage.getItem('i_username') == null){
+
 	header = '<nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav" >'+
 			'<div class="container"><a href="index.html" class="navbar-brand"><img src="images/RajpurohitLogo.png" width=215 height="50" alt="" ></a>  '+
 				'<button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse" style="background-color: #01e6f8;"><span '+
 						'class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>'+
-				'<div id="my-nav" class="collapse navbar-collapse" style="flex-basis: inherit;flex-grow: inherit;">'+
-					'<form class="form-inline my-2 my-lg-0">'+
-						'<a href="index.html" class="btn btn-info my-2 my-sm-0 text-uppercase">Home</a>&nbsp;&nbsp;'+
-						'<a href="forgetpassword.html" class="btn btn-info my-2 my-sm-0 text-uppercase">Forget Password</a>&nbsp;&nbsp;'+
-						'<a href="user-signup.html" class="btn btn-info my-2 my-sm-0 text-uppercase">sign up</a>&nbsp;&nbsp;'+
-						'<a href="login.html" class="btn btn-info my-2 my-sm-0 text-uppercase">sign in</a>&nbsp;&nbsp;'+
-						'<a href="javascript:void(0)" onclick="return viewMyCart(this)" class="btn btn-info my-2 my-sm-0 text-uppercase">My Cart</a>'+
-					'</form>'+
-				'</div>'+
 			'</div>'+
 		'</nav>';	
-}else{
-	if(localStorage.getItem('i_userType') == 'S'){		
-		header = '<nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">'+
-			'<div class="container"><a href="index.html" class="navbar-brand"><img src="images/InayaLogo.png" width=185 height="90" alt="" ></a>  '+
-				'<button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse" style="background-color: #01e6f8;"><span '+
-						'class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>'+
-				'<div id="my-nav" class="collapse navbar-collapse">'+
-					'<ul class="navbar-nav mr-auto">'+
-						'<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>'+
-						'<li class="nav-item"><a class="nav-link" href="superadmin-entry.html">Super Admin Entry</a></li>'+
-						'<li class="nav-item"><a class="nav-link" href="changepassword.html">Change Password</a></li>'+
-					'</ul>'+
-					'<form class="form-inline my-2 my-lg-0">'+
-						'<a href="#" onclick="logout()" class="btn btn-info my-2 my-sm-0 text-uppercase">logout</a>'+
-					'</form>'+
-				'</div>'+
-			'</div>';		
-	}
-	if(localStorage.getItem('i_userType') == 'A'){		
-		header = '<nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">'+
-			'<div class="container"><a href="index.html" class="navbar-brand"><img src="images/InayaLogo.png" width=185 height="90" alt="" ></a>  '+
-				'<button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse" style="background-color: #01e6f8;"><span '+
-						'class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>'+
-				'<div id="my-nav" class="collapse navbar-collapse">'+
-					'<ul class="navbar-nav mr-auto">'+
-						'<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>'+
-						'<li class="nav-item"><a class="nav-link" href="admin-entry.html">Admin Entry</a></li>'+
-						'<li class="nav-item"><a class="nav-link" href="admin-transdetails.html">Transaction</a></li>'+
-						'<li class="nav-item"><a class="nav-link" href="changepassword.html">Change Password</a></li>'+
-					'</ul>'+
-					'<form class="form-inline my-2 my-lg-0">'+
-						'<a href="#" onclick="logout()" class="btn btn-info my-2 my-sm-0 text-uppercase">logout</a>'+
-					'</form>'+
-				'</div>'+
-			'</div>';		
-	}
-	if(localStorage.getItem('i_userType') == 'U'){		
-		header = '<nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">'+
-			'<div class="container"><a href="index.html" class="navbar-brand"><img src="images/InayaLogo.png" width=185 height="90" alt="" ></a>  '+
-				'<button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse" style="background-color: #01e6f8;"><span '+
-						'class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>'+
-				'<div id="my-nav" class="collapse navbar-collapse">'+
-					'<ul class="navbar-nav mr-auto">'+
-						'<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>'+
-						'<li class="nav-item"><a class="nav-link" href="changepassword.html">Change Password</a></li>'+
-					'</ul>'+
-					'<form class="form-inline my-2 my-lg-0">'+
-						'<a href="#" onclick="return viewMyCart(this)" class="btn btn-info my-2 my-sm-0 text-uppercase">MY Cart</a>&nbsp;&nbsp;'+
-						'<a href="#" onclick="logout()" class="btn btn-info my-2 my-sm-0 text-uppercase">logout</a>'+
-					'</form>'+
-				'</div>'+
-			'</div>';		
-	}
-	
-}
 $("#topHeadersection").html(header);		
 $("#footersection").html(footerSection);
  
@@ -158,14 +94,7 @@ function sendMessageFooter(obj){
 		return false;
 }
 
-function viewMyCart(obj){
-	if(localStorage.getItem("i_username") == null){
-		alert("Sorry! Please login first before checking Cart");
-		location.href="login.html";
-		return false;
-	}
-	location.href="mycart.html"
-}
+
 function checkErrorResp(resp){	
 	if(resp.responseJSON.startsWith("Fail")){
 		alert("Your session has been expire, Please login");
