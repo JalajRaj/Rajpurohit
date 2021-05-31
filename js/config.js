@@ -13,10 +13,9 @@ var footerSection =  '<footer class="container-fluid" style="margin-top:130px;pa
         '<div class="row">'+
             '<div class="col-lg-6" id="contact">'+
                 '<h4> Contact Us </h4>'+
-                '<input type="text" id="name" class="form-control" placeholder="Full Name">'+
-                '<input type="email" id="email" class="form-control" placeholder="Email Address">'+
-                '<input type="text" id="mobile" class="form-control" placeholder="Mobile Number">'+
-                '<textarea class="form-control" id="message" placeholder="Message"></textarea>'+
+                '<input type="text" id="name" class="form-control" maxlength="15"placeholder="Full Name">'+
+                '<input type="text" id="mobile" class="form-control"  maxlength="10"placeholder="Mobile Number">'+
+                '<textarea class="form-control" id="message" maxlength="140" placeholder="Message"></textarea>'+
                 '<a href="javascript:void(0);" onclick="return sendMessageFooter(this)" class="submit-button">Send Message <i class="fa fa-angle-right" aria-hidden="true"></i></a>'+
             '</div>'+
             '<div class="col-lg-6">'+
@@ -24,7 +23,7 @@ var footerSection =  '<footer class="container-fluid" style="margin-top:130px;pa
                     '<div class="col-6">'+
                         '<h4>Location</h4>'+
                         '<ul class="nav flex-column services-nav">'+
-                            '<li class="nav-item"><a class="nav-link" href="#">Rajpurohit Dharmashala, Ratlam (M.p.) </a></li>'+
+                            '<li class="nav-item"><a class="nav-link" href="#">Rajpurohit Dharmashala, Ratlam (M.P.) </a></li>'+
                         '</ul>'+
                     '</div>'+
                    
