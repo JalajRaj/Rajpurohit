@@ -235,3 +235,41 @@ function resizeImageToSpecificWidth(imgPath,myInput) {
             reader.readAsDataURL(myInput.files[0]);
         }
     }
+
+
+	function sendMessageFooter(obj){
+		if($("#name").val() == ""){
+			alert("Please enter Full Name");
+			return false;
+		}
+		
+		if($("#mobile").val() == ""){
+			alert("Please enter Mobile No");
+			return false;
+		}
+		if($("#message").val() == ""){
+			alert("Please enter Message");
+			return false;
+		}
+		$(obj).attr('onclick', "");
+		$(obj).html('Please Wait....<i class="fa fa-angle-right" aria-hidden="true"></i>');
+		var map = {};
+			map["name"] = $("#name").val();
+			map["mobile"] = $("#mobile").val();
+			map["message"] = $("#message").val();
+		$.ajax({
+				type: 'POST',
+				data: JSON.stringify(map),
+				url: serverURL + "raj_saveSentMsg",
+				success: function (response) {					
+					alert(response);
+					$(obj).attr('onclick', "return sendMessageFooter(this)");
+					$(obj).html('Send Message<i class="fa fa-angle-right" aria-hidden="true"></i>');
+				},
+				error: function (response) {
+					alert("Error "+response);
+					location.reload();
+				}
+			});	
+			return false;
+	}

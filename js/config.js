@@ -15,7 +15,7 @@ var footerSection =  '<footer class="container-fluid" style="margin-top:130px;pa
                 '<h4> Contact Us </h4>'+
                 '<input type="text" id="name" class="form-control" placeholder="Full Name">'+
                 '<input type="email" id="email" class="form-control" placeholder="Email Address">'+
-                '<input type="text" id="phone" class="form-control" placeholder="Phone Number">'+
+                '<input type="text" id="mobile" class="form-control" placeholder="Mobile Number">'+
                 '<textarea class="form-control" id="message" placeholder="Message"></textarea>'+
                 '<a href="javascript:void(0);" onclick="return sendMessageFooter(this)" class="submit-button">Send Message <i class="fa fa-angle-right" aria-hidden="true"></i></a>'+
             '</div>'+
@@ -58,46 +58,7 @@ function logout(){
 	localStorage.removeItem('i_area');
 	location.href="login.html";
 }
-function sendMessageFooter(obj){
-	if($("#name").val() == ""){
-		alert("Please enter Full Name");
-		return false;
-	}
-	if($("#email").val() == ""){
-		alert("Please enter Email ID");
-		return false;
-	}
-	if($("#phone").val() == ""){
-		alert("Please enter Phone No");
-		return false;
-	}
-	if($("#message").val() == ""){
-		alert("Please enter Message");
-		return false;
-	}
-	$(obj).attr('onclick', "");
-	$(obj).html('Please Wait....<i class="fa fa-angle-right" aria-hidden="true"></i>');
-	var map = {};
-		map["name"] = $("#name").val();
-		map["emailid"] = $("#email").val();
-		map["phone"] = $("#phone").val();
-		map["message"] = $("#message").val();
-	$.ajax({
-			type: 'POST',
-			data: JSON.stringify(map),
-			url: serverURL.substr(0,serverURL.length -4)+"C/C/sendFooterMsg",
-			success: function (response) {					
-				alert(response);
-				$(obj).attr('onclick', "return sendMessageFooter(this)");
-				$(obj).html('Send Message<i class="fa fa-angle-right" aria-hidden="true"></i>');
-			},
-			error: function (response) {
-				alert("Error "+response);
-				location.reload();
-			}
-		});	
-		return false;
-}
+
 
 
 function checkErrorResp(resp){	
