@@ -4,6 +4,10 @@ if(document.getElementById("myConfigLib") != null){
 	myPath="";
 }
 
+var marquee =  '<marquee  style= "background-color:hsl(0, 92%, 50%); color:white ;  font-size:20px" height="40px"> '+
+			   ' वेबसाइट / डाटा एंट्री में किसी भी तरह की मदद के लिए 9827062335, 9907231249, 9820684534 पर संपर्क करें या व्हाट्सएप करें। '+
+				'</marquee>';
+
 var footerSection =  '<footer class="container-fluid" style="margin-top:130px;padding-top:80px" id="gtco-footer">'+
     '<div class="container">'+
         '<div class="row">'+
@@ -37,13 +41,14 @@ var footerSection =  '<footer class="container-fluid" style="margin-top:130px;pa
 var header = "";
 
 	header = '<nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav" >'+
-			'<div class="container"><a href="index.html" class="navbar-brand"><img src="images/RajpurohitLogo.png" width=215 height="50" alt="" ></a>  '+
+			'<div class="container"><a href="index.html" class="navbar-brand"><img src="images/RPLogo.png" width=215 height="50" alt="" ></a>  '+
 				'<button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse" style="background-color: #01e6f8;"><span '+
 						'class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>'+
 			'</div>'+
 		'</nav>';	
 $("#topHeadersection").html(header);		
 $("#footersection").html(footerSection);
+$("#marquee").html(marquee);
  
 function logout(){
 	localStorage.removeItem('i_data');

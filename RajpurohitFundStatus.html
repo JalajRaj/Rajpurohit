@@ -1,0 +1,167 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- awesone fonts css-->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!-- owl carousel css-->
+    <link rel="stylesheet" href="owl-carousel/assets/owl.carousel.min.css" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+	
+    <title>Rajpurohit</title>
+    <script>
+		if (location.protocol == 'http:'){
+			  location.href = location.href.replace("http","https");
+		}
+    </script>
+    <style>
+
+    </style>
+</head>
+<body style="background-color:#fcfcfc"  onload="getFundStatus()">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
+        <div class="container"><a class="navbar-brand">Rajpurohit</a>
+            <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
+                    class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
+            <div id="my-nav" class="collapse navbar-collapse">
+                <!--<ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>-->
+                <form class="form-inline my-2 my-lg-0">
+                    <a href="index.html" class="btn btn-info my-2 my-sm-0 text-uppercase">Home</a>
+                    <a href="RajpurohitEntry.html" class="btn btn-info my-2 my-sm-0 text-uppercase">Rajpurohit Entry</a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
+<div id="marquee"></div>
+		
+
+<div class="col-lg-6" id="contact" </div>
+    <h4> Fund Status (फंड की स्थिति) </h4>
+    
+    <fieldset>
+        <label for="Search">Search</label>
+       <input id="Search" placeholder="Type to filter records" maxlength=10 class="form-control" type="text" cols="50"  style="margin-bottom: 10px" required autofocus>
+        
+    </fieldset>
+
+    <p style="color: Green"> कुल एकत्रित राशि : <b>236000</b></p>
+
+    <p> राजपुरोहित समाज की कार्यरत  कोविड-19  समिति  को   समाज बंधु  द्वारा  देय राशि की सूची : </p>
+    
+    
+    <table id="displayTableDetails" class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>Sr. No</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Recived At</th>
+            <th>Date</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div class="clear"></div>
+
+
+
+
+<div id="footersection" style="background-color:#F5F5F5"></div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/myutil.js"></script>
+<script src="owl-carousel/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/config.js"></script>
+<script src="js/nologin.js"></script>
+<script src="js/auto-complete.min.js"></script>
+<script src="js/myutil.js"></script>
+<script>
+showSlides();
+initOfferNotes();
+initUserEntryData();
+initTableAttr();
+setTimeout(function(){ $(".owl-dots").eq(1).find('button').eq(2).trigger('click') }, 1000);
+
+</script>
+
+<script>
+     
+        
+    function getFundStatus(){
+     var list = [];
+     
+     list.push("श्री वासुदेव जी (Mr. Vasudev),@100000,@A/c No. 039001002515,@");         
+     list.push("श्री वागेश  जी (Mr. Vagesh),@21000,@A/c No. 039001002515,@");         
+     list.push("श्री विनोद जी (Mr. Vinod),@11000,@A/c No. 039001002515,@");         
+     list.push("श्री ईश्वर लाल जी (Mr. Ishwar lal),@11000,@A/c No. 039001002515,@");         
+     list.push("श्री सुरेश जी (Mr. Suresh),@11000,@A/c No. 039001002515,@");         
+     list.push("श्री दीपक जी (Mr. Deepak),@11000,@A/c No. 039001002515,@");         
+     list.push("श्री दिलीप जी (Mr. Dilip),@11000,@A/c No. 039001002515,@");         
+     list.push("श्री तरुण जी (Mr. Tarun),@11000,@A/c No. 039001002515,@");         
+     list.push("श्री देवेंद्र जी (Mr. Devendra),@11000,@A/c No. 039001002515,@");         
+     list.push("श्री खुशाल सिंह जी (Mr. Khushal),@11000,@A/c No. 039001002515,@");         
+     list.push("श्री गौतम जी (Mr. Goutam),@11000,@A/c No. 039001002515,@");         
+     list.push("श्री दुष्यंत जी (Mr. Dushyant),@11000,@A/c No. 039001002515,@");         
+     list.push("श्रीमती हेमा जी (Mrs. Hema),@1100,@A/c No. 039001002515,@");         
+     list.push("श्रीमती शकुंतला जी (Mrs. Shankutla),@1100,@A/c No. 039001002515,@");         
+     list.push("श्रीमती बबीता जी (Mrs. Babita),@1100,@A/c No. 039001002515,@");         
+     list.push("श्रीमती राजकुमारी जी (Mrs. Rajkumari),@1100,@A/c No. 039001002515,@");         
+     list.push("श्रीमती शैलबाला जी (Mrs. Shelbala),@500,@A/c No. 039001002515,@");         
+     list.push("श्रीमती सुनीता जी (Mrs. Sunita),@100,@A/c No. 039001002515,@");         
+           
+       
+           
+     
+     
+           
+     generateTable(list)
+    }
+    
+
+
+
+function generateTable(list){
+    $("#displayTableDetails > tbody").empty()
+    var count =1;
+    $(list).each(function(){
+        var val = this.split(",@");
+        var tr="<tr><td>"+count+" </td><td>"+val[0]+"</td><td>"+val[1]+"</td><td>"+val[2]+"</td><td>"+val[3]+"</td></tr>";
+        $("#displayTableDetails").append(tr);
+        count++;
+    });
+}
+
+
+</script>
+
+<script>
+        $(document).ready(function(){
+          $("#Search").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#displayTableDetails tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+</script>
+
+</body>
+</html>
