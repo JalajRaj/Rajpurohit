@@ -12,7 +12,8 @@ var footerSection =  '<footer class="container-fluid" style="margin-top:130px;pa
     '<div class="container">'+
         '<div class="row">'+
             '<div class="col-lg-6" id="contact">'+
-                '<h4> Contact Us </h4>'+
+                '<h4> Contact / Feedback / Suggestions Details </h4>'+
+                '<h4> संपर्क / प्रतिक्रिया / सुझाव विवरण </h4>'+
                 '<input type="text" id="name" class="form-control" maxlength="15"placeholder="Full Name">'+
                 '<input type="text" id="mobile" class="form-control"  maxlength="10"placeholder="Mobile Number">'+
                 '<textarea class="form-control" id="message" maxlength="140" placeholder="Message"></textarea>'+
