@@ -72,10 +72,10 @@
                 <input type="text" name="city" class="form-control" maxlength="30" placeholder="Cities/Towns/Villages Name (शहरों/कस्बों/गांवों का नाम) *">
                 <input type="text" name="gotra" class="form-control" maxlength="15" placeholder="Gotra (गोत्र) *">
                 <!--<input type="text" name="age" class="form-control" maxlength="3" placeholder="Age (उम्र)">-->
-                <Div>
+                
                 <h6>Date of Birth (जन्म की तारीख) *</h6>
                 <input type="date" name="age" class="form-control" placeholder=" Date of Birth (जन्म की तारीख)">
-                </Div>
+                
                 <select name="gender" class="form-control" >
                      <option value="-1"> Select Gender </option> 
                      <option value="Male"> Male </option> 
@@ -139,24 +139,25 @@
 				</form>
 				
 				<div class="row">
-				<div class="form-group name1 col-md-6">
-					<label for="exampleInputEmail1" class="formText">Upload Customer Photo:</label>
-					<input type="file" name="custPic1" id="custPic1" />
-					<input type="hidden" class="form-control" id="custPic" name="custPic" >
-				</div>
+                    <div class="form-group name1 col-md-6">
+                        <label for="exampleInputEmail1" class="formText">Upload Customer Photo:</label>
+                        <input type="file" name="custPic1" id="custPic1" />
+                        <input type="hidden" class="form-control" id="custPic" name="custPic" >
+                    </div>
 
-				<div class="form-group name2 col-md-6">
-					<img id="custPic-orignal" width="500px" style="display:none">
-					<div class="image-sec-cust">
-						<img id="custPic-image" style="">
-					</div>
-				</div>
-			</div>
+                    <div class="form-group name2 col-md-6">
+                        <img id="custPic-orignal" width="500px" style="display:none">
+                        <div class="image-sec-cust">
+                            <img id="custPic-image" style="">
+                        </div>
+                    </div>
+			    </div>
 			
                 <a href="javascript:void(0)" onclick="saveCustData(this);" class="submit-button">Save <i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </div>
         </div>
 	</div>	</div>
+    
 	 <div class="container" style="margin-top:30px">
 		<div class="row">
         <h4 style= "color:rgb(54, 13, 236)">Enter Search Criteria </h4>  
