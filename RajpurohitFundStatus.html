@@ -58,8 +58,8 @@
         
     </fieldset>
 
-    <p style="color: Green"> कुल एकत्रित राशि : <b>270000</b></p>
-    <p style="color: Green"> उपलब्ध शेष राशि (कुल - प्रयुक्त) : 270000 (270000 - 0) </p>
+    <p style="color: Green"> कुल एकत्रित राशि : <b>   <span id="AmtTotalid">0</span> Rs.   </b> </p>
+   <!-- <p style="color: Green"> उपलब्ध शेष राशि (कुल - प्रयुक्त) : <span id="AmtTotalid">0</span> Rs. ( <span id="AmtTotalid">0</span>  - 0) </p> -->
 
     <p> राजपुरोहित समाज की कार्यरत  कोविड-19  समिति  को   समाज बंधु  द्वारा  देय राशि की सूची : </p>
     
@@ -132,14 +132,10 @@ setTimeout(function(){ $(".owl-dots").eq(1).find('button').eq(2).trigger('click'
      list.push("श्रीमती शैलबाला जी (Mrs. Shelbala),@500,@A/c No. 039001002515,@22-May-2021");         
      list.push("श्रीमती सुनीता जी (Mrs. Sunita),@100,@A/c No. 039001002515,@22-May-2021");         
      
-     
-           
-       
-           
-     
-     
            
      generateTable(list)
+
+     getAmtTotal()
     }
     
 
@@ -157,6 +153,26 @@ function generateTable(list){
 }
 
 
+</script>
+
+<script>
+    function getAmtTotal(){
+    var cells = document.getElementById("displayTableDetails").getElementsByTagName("td");
+    var AmtTotal = 0
+    var numberPattern = new RegExp('^\\d*$');
+
+
+        for (var i = 0; i < cells.length; i++) {
+            if (cells[i].innerHTML !== "") {
+                if (cells[i].innerHTML.match(numberPattern)) {
+               
+                  //  AmtTotal = AmtTotal + cells[1].val;
+                    AmtTotal += isNaN(cells[i].innerHTML) ? 0 : parseInt(cells[i].innerHTML);
+                }
+            }
+        }
+        $("#AmtTotalid").html(parseInt($("#AmtTotalid").html()) + parseInt(AmtTotal));
+    }
 </script>
 
 <script>
