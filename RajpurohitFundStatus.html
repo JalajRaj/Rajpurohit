@@ -165,7 +165,6 @@ function generateTable(list){
         for (var i = 0; i < cells.length; i++) {
             if (cells[i].innerHTML !== "") {
                 if (cells[i].innerHTML.match(numberPattern)) {
-               
                   //  AmtTotal = AmtTotal + cells[1].val;
                     AmtTotal += isNaN(cells[i].innerHTML) ? 0 : parseInt(cells[i].innerHTML);
                 }

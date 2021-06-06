@@ -16,7 +16,7 @@ var footerSection =  '<footer class="container-fluid" style="margin-top:130px;pa
                 '<h4> संपर्क / प्रतिक्रिया / सुझाव विवरण </h4>'+
                 '<input type="text" id="name" class="form-control" maxlength="20"placeholder="Name">'+
                 '<input type="text" id="mobile" class="form-control"  maxlength="10"placeholder="Mobile Number">'+
-                '<textarea class="form-control" id="message" maxlength="110" placeholder="Message"></textarea>'+
+                '<textarea class="form-control" id="message" maxlength="60" placeholder="Message"></textarea>'+
                 '<a href="javascript:void(0);" onclick="return sendMessageFooter(this)" class="submit-button">Send Message <i class="fa fa-angle-right" aria-hidden="true"></i></a>'+
             '</div>'+
             '<div class="col-lg-6">'+
