@@ -278,25 +278,30 @@ function resizeImageToSpecificWidth(imgPath,myInput) {
 	function fetchFeedbackSugInfo(){
 
 		var password = prompt("Please enter Password. ");
-	 if (password != null) {	
-		var map = {};
-		map["password"]=password;
+	 		if (password != null) {	
+				var map = {};
+				map["password"]=password;
 	 
-
 		$.ajax({
 			type: 'POST',
 			data: JSON.stringify(map),
 
 			url: serverURL + "raj_fetchFeedbackSugInfo",
 			success: function (response) {
-				$("#displayTableDetails tbody").empty();
-				console.log(response)
-				$(response).each(function(i,obj){				
-						var tr="<tr><td>"+(++i)+"</td><td>"+$(obj).attr('name')+"</td><td>"+$(obj).attr('mobile')+"</td><td>"+$(obj).attr('message')+"</td></tr>";
-						$("#displayTableDetails tbody").append(tr);	
-				});
-				
-				$("#loadingdiv").hide();
+				if(typeof response=="string"){
+					alert(response);
+					location.reload();
+				}else{
+						$("#displayTableDetails tbody").empty();
+						console.log(response)
+						$(response).each(function(i,obj){				
+								var tr="<tr><td>"+(++i)+"</td><td>"+$(obj).attr('name')+"</td><td>"+$(obj).attr('mobile')+"</td><td>"+$(obj).attr('message')+"</td><td>"+$(obj).attr('dateTime')+"</td></tr>";
+								$("#displayTableDetails tbody").append(tr);	
+						});
+						
+						$("#loadingdiv").hide();
+					}
+
 			},
 			error: function (response) {
 				alert("Error while updating data "+response);
