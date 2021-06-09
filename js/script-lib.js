@@ -309,7 +309,8 @@ function resizeImageToSpecificWidth(imgPath,myInput) {
 			}
 		});	
 	}else{
-		fetchFeedbackSugInfo()
+		//fetchFeedbackSugInfo()
+		location.href = "index.html"
 	}
 
 	}

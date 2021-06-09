@@ -4,7 +4,7 @@ if(document.getElementById("myConfigLib") != null){
 	myPath="";
 }
 
-var marquee =  '<marquee  style= "background-color:hsl(0, 92%, 50%); color:white ;  font-size:20px" height="40px"> '+
+var marquee =  '<marquee  scrollamount="2" style= "background-color:hsl(0, 92%, 50%); color:white ; font-size:20px" height="40px"> '+
 			   ' वेबसाइट / डाटा एंट्री में किसी भी तरह की मदद के लिए 9827062335, 9907231249, 9820684534 पर संपर्क करें या व्हाट्सएप करें। '+
 				'</marquee>';
 
@@ -16,7 +16,7 @@ var footerSection =  '<footer class="container-fluid" style="margin-top:130px;pa
                 '<h4> संपर्क / प्रतिक्रिया / सुझाव विवरण </h4>'+
                 '<input type="text" id="name" class="form-control" maxlength="20"placeholder="Name">'+
                 '<input type="text" id="mobile" class="form-control"  maxlength="10"placeholder="Mobile Number">'+
-                '<textarea class="form-control" id="message" maxlength="60" placeholder="Message"></textarea>'+
+                '<textarea class="form-control" id="message" maxlength="140" placeholder="Message"></textarea>'+
                 '<a href="javascript:void(0);" onclick="return sendMessageFooter(this)" class="submit-button">Send Message <i class="fa fa-angle-right" aria-hidden="true"></i></a>'+
             '</div>'+
             '<div class="col-lg-6">'+
