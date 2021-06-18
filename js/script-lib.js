@@ -13,6 +13,7 @@ function saveCustData(obj){
 		$("[name='name']").focus()
 		return false;
 		}
+		CheckExistNameMobile()
 	if($("[name='fname']").val() == '' ){
 		alert('Please enter your Father Name.');
 		$("[name='fname']").focus()
@@ -58,6 +59,9 @@ function saveCustData(obj){
 		$("[name='vaccinationstatus']").focus()
 		return false;
 		}	
+
+		
+
 	$(obj).attr('onclick', "");
 	$(obj).html('Please Wait....<i class="fa fa-angle-right" aria-hidden="true"></i>');
 	
@@ -314,3 +318,21 @@ function resizeImageToSpecificWidth(imgPath,myInput) {
 	}
 
 	}
+
+	function CheckExistNameMobile(){
+		//var FullName = $("[name='name']").val()
+		var mobileNo = $("[name='mobile']").val()
+		if (mobileNo != null) {
+			var found=false;
+		  $('#displayTableDetails tbody tr').each(function(i,obj){
+			  if($(obj).find('td').eq(2).html() == mobileNo.toUpperCase()){
+				  alert("Data for "+mobileNo+" already exists for row no "+(++i));
+				  found = true;
+			  }		
+		  });
+		  if(! found){
+			 // Allow entery
+		  }
+		}
+		return false;
+	  }
