@@ -5,15 +5,15 @@ function checkHttpReq(){
 	  location.href = location.href.replace("http","https");
 	}
 }
+var isedit=false;
 function saveCustData(obj){
-
 
 	if($("[name='name']").val() == '' ){
 		alert('Please enter your Name.');
 		$("[name='name']").focus()
 		return false;
 		}
-		CheckExistNameMobile()
+		
 	if($("[name='fname']").val() == '' ){
 		alert('Please enter your Father Name.');
 		$("[name='fname']").focus()
@@ -44,6 +44,9 @@ function saveCustData(obj){
 		$("[name='mobile']").focus()
 		return false;
 		}
+	if(checkExistNameMobile($("[name='mobile']").val(),$("[name='name']").val())){
+		return false;
+	}
 	if($("[name='occupation']").val() == -1 ){
 		alert('Please Select Occupation.');
 		$("[name='occupation']").focus()
@@ -135,7 +138,7 @@ function fetchAllCustInfo(){
 			$("#displayTableDetails tbody").empty();
 			console.log(response)
 			$(response).each(function(i,obj){				
-					var tr="<tr><td data-type='number'><a href='javascript:void(0)' data-id="+$(obj).attr('id')+" onClick='getCustDetails(this)'>"+(++i)+"</a></td><td>"+$(obj).attr('name')+" "+$(obj).attr('fname')+"<br>Gotra: "+$(obj).attr('gotra')+"</td><td>"+$(obj).attr('mobile')+"</td><td>"+$(obj).attr('address')+" City: "+$(obj).attr('city')+"</td><td>Age: "+$(obj).attr('age')+"<br>Gender: "+$(obj).attr('gender')+"</td><td>Email: "+$(obj).attr('email')+"<br>Occupation: "+$(obj).attr('occupation')+"<br>Qualification: "+$(obj).attr('qualification')+"</td><td>Age Group: "+$(obj).attr('ageGroup')+"<br>VaccinationStatus: "+$(obj).attr('vaccinationstatus')+"</td><td>FundSubmitdate: "+$(obj).attr('fundSubmitdt')+"<br>Submit Fund: "+$(obj).attr('submitFund')+"</td><td>"+$(obj).attr('remark')+"</td></tr>";
+					var tr="<tr data-mobile='"+$(obj).attr('mobile')+"' data-name='"+$(obj).attr('name')+"'><td data-type='number'><a href='javascript:void(0)' data-id="+$(obj).attr('id')+" onClick='getCustDetails(this)'>"+(++i)+"</a></td><td>"+$(obj).attr('name')+" "+$(obj).attr('fname')+"<br>Gotra: "+$(obj).attr('gotra')+"</td><td>"+$(obj).attr('mobile')+"</td><td>"+$(obj).attr('address')+" City: "+$(obj).attr('city')+"</td><td>Age: "+$(obj).attr('age')+"<br>Gender: "+$(obj).attr('gender')+"</td><td>Email: "+$(obj).attr('email')+"<br>Occupation: "+$(obj).attr('occupation')+"<br>Qualification: "+$(obj).attr('qualification')+"</td><td>Age Group: "+$(obj).attr('ageGroup')+"<br>VaccinationStatus: "+$(obj).attr('vaccinationstatus')+"</td><td>FundSubmitdate: "+$(obj).attr('fundSubmitdt')+"<br>Submit Fund: "+$(obj).attr('submitFund')+"</td><td>"+$(obj).attr('remark')+"</td></tr>";
 					$("#displayTableDetails tbody").append(tr);	
 			});
 			
@@ -156,14 +159,14 @@ function getCustDetails(obj){
 		type: 'POST',
 		data: JSON.stringify(map),
 		url: serverURL + "raj_fetchCustDetails",
-		success: function (response) {
-			
+		success: function (response) {			
 			console.log(response);
 			for (var key in response) {
 			  if (response.hasOwnProperty(key)) {
 				$("[name='"+key+"']").val(response[key]);
 			  }
 			}
+			isedit = true;
 			$("html, body").animate({ scrollTop:  $("#contact").offset().top }, "slow");
 		},
 		error: function (response) {
@@ -319,20 +322,15 @@ function resizeImageToSpecificWidth(imgPath,myInput) {
 
 	}
 
-	function CheckExistNameMobile(){
-		//var FullName = $("[name='name']").val()
-		var mobileNo = $("[name='mobile']").val()
-		if (mobileNo != null) {
-			var found=false;
+	function checkExistNameMobile(mobileNo,name){
+		if(!isedit){
+		  var result = false;
 		  $('#displayTableDetails tbody tr').each(function(i,obj){
-			  if($(obj).find('td').eq(2).html() == mobileNo.toUpperCase()){
-				  alert("Data for "+mobileNo+" already exists for row no "+(++i));
-				  found = true;
+			  if($(obj).attr('data-mobile').trim() == mobileNo.trim() && $(obj).attr('data-name').toUpperCase().trim() == name.toUpperCase().trim()){
+				  alert("Data for "+mobileNo+" and name already exists for row no "+(++i));
+				  result = true;
 			  }		
 		  });
-		  if(! found){
-			 // Allow entery
-		  }
+		  return result;
 		}
-		return false;
 	  }
