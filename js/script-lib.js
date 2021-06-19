@@ -5,6 +5,7 @@ function checkHttpReq(){
 	  location.href = location.href.replace("http","https");
 	}
 }
+var folder="UsersPhoto";
 var isedit=false;
 function saveCustData(obj){
 
@@ -137,6 +138,7 @@ function fetchAllCustInfo(){
 		success: function (response) {
 			$("#displayTableDetails tbody").empty();
 			console.log(response)
+			folder="UsersPhoto";
 			$(response).each(function(i,obj){				
 					var tr="<tr data-mobile='"+$(obj).attr('mobile')+"' data-name='"+$(obj).attr('name')+"'><td data-type='number'><a href='javascript:void(0)' data-id="+$(obj).attr('id')+" onClick='getCustDetails(this)'>"+(++i)+"</a></td><td>"+$(obj).attr('name')+" "+$(obj).attr('fname')+"<br>Gotra: "+$(obj).attr('gotra')+"</td><td>"+$(obj).attr('mobile')+"</td><td>"+$(obj).attr('address')+" City: "+$(obj).attr('city')+"</td><td>Age: "+$(obj).attr('age')+"<br>Gender: "+$(obj).attr('gender')+"</td><td>Email: "+$(obj).attr('email')+"<br>Occupation: "+$(obj).attr('occupation')+"<br>Qualification: "+$(obj).attr('qualification')+"</td><td>Age Group: "+$(obj).attr('ageGroup')+"<br>VaccinationStatus: "+$(obj).attr('vaccinationstatus')+"</td><td>FundSubmitdate: "+$(obj).attr('fundSubmitdt')+"<br>Submit Fund: "+$(obj).attr('submitFund')+"</td><td>"+$(obj).attr('remark')+"</td></tr>";
 					$("#displayTableDetails tbody").append(tr);	
@@ -198,6 +200,7 @@ function getMap(){
 		$("."+divClass+"-cust").find('img').attr('src','data:image/png;base64,');
 		var map= {};
 		map["id"]=custid;
+		map["folder"]=folder;
         $.ajax({
             type: "POST",
             url: serverURL +"raj_downloadPic",
@@ -460,8 +463,9 @@ function fetchAllMatrimonyInfo(){
 		success: function (response) {
 			$("#displayTableDetails tbody").empty();
 			console.log(response)
+			folder="UsersMPhoto";
 			$(response).each(function(i,obj){				
-					var tr="<tr data-mobile='"+$(obj).attr('mobile')+"' data-name='"+$(obj).attr('name')+"'><td data-type='number'><a href='javascript:void(0)' data-id="+$(obj).attr('id')+" onClick='getCustDetails(this)'>"+(++i)+"</a></td><td>"+$(obj).attr('name')+" "+$(obj).attr('fname')+"<br>Gotra: "+$(obj).attr('gotra')+"</td><td>"+$(obj).attr('mobile')+"</td><td>"+$(obj).attr('address')+" City: "+$(obj).attr('city')+"</td><td>Age: "+$(obj).attr('age')+"<br>Gender: "+$(obj).attr('gender')+"</td><td>Email: "+$(obj).attr('email')+"<br>mobile: "+$(obj).attr('mobile')+"<br>Qualification: "+$(obj).attr('qualification')+"</td><td>mobile: "+$(obj).attr('mobile')+"<br>mobile: "+$(obj).attr('mobile')+"</td><td>mobile: "+$(obj).attr('mobile')+"<br>mobile: "+$(obj).attr('mobile')+"</td><td>"+$(obj).attr('remark')+"</td></tr>";
+					var tr="<tr data-mobile='"+$(obj).attr('mobile')+"' data-name='"+ $(obj).attr('name')+"'><td data-type='number'><a href='javascript:void(0)' data-id="+$(obj).attr('id')+" onClick='getMatrimonyDetails(this)'>"+(++i)+"</a></td><td>"+$(obj).attr('gender')+ " " +$(obj).attr('name')+"<br>Gotra: "+$(obj).attr('gotra')+"</td><td>"+$(obj).attr('mobile')+"<br> "+$(obj).attr('email')+"</td><td>"+"Father: "+$(obj).attr('fname')+"<br> Mother: "+$(obj).attr('mname')+"</td><td> Address: " + $(obj).attr('address')+" City: "+$(obj).attr('city')+"</td><td>DOB: " + $(obj).attr('age')+"<br>Time: "+ $(obj).attr('time')+"</td><td>Height: "+$(obj).attr('height')+"<br>Weight: "+$(obj).attr('weight')+"</td><td>Education: "+$(obj).attr('qualification')+"<br>Job: "+$(obj).attr('job')+"</td><td>"+$(obj).attr('remark')+"</td></tr>";
 					$("#displayTableDetails tbody").append(tr);	
 			});
 			
