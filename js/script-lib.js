@@ -337,3 +337,181 @@ function resizeImageToSpecificWidth(imgPath,myInput) {
 		  return result;
 		}
 	  }
+
+
+	  var isedit=false;
+function saveMatrimonyData(obj){
+
+	if($("[name='gender']").val() == -1 ){
+		alert('Please Select Mr. / Miss.');
+		$("[name='gender']").focus()
+		return false;
+		}
+
+		if($("[name='name']").val() == '' ){
+		alert('Please enter your Name.');
+		$("[name='name']").focus()
+		return false;
+		}
+	
+		if($("[name='mobile']").val() == '' ){
+			alert('Please enter 10 digit Phone/Mobile Number.');
+			$("[name='mobile']").focus()
+			return false;
+			}
+		if(checkExistNameMobile($("[name='mobile']").val(),$("[name='name']").val())){
+			return false;
+		}
+
+	if($("[name='fname']").val() == '' ){
+		alert('Please enter your Father Name.');
+		$("[name='fname']").focus()
+		return false;
+		}
+		
+	if($("[name='mname']").val() == '' ){
+			alert('Please enter your Mother Name.');
+			$("[name='mname']").focus()
+			return false;
+			}
+
+	if($("[name='address']").val() == '' ){
+		alert('Please enter your Home Address.');
+		$("[name='address']").focus()
+		return false;
+		}
+	if($("[name='city']").val() == '' ){
+		alert('Please enter your Cities/Towns/Villages name.');
+		$("[name='city']").focus()
+		return false;
+		}
+	if($("[name='gotra']").val() == '' ){
+		alert('Please enter a Gotra name.');
+		$("[name='gotra']").focus()
+		return false;
+		}
+	if($("[name='age']").val() == '' ){
+		alert('Please enter your DOB.');
+		$("[name='age']").focus()
+		return false;
+		}
+	
+	if($("[name='time']").val() == '' ){
+		alert('Please enter your DOB Time.');
+		$("[name='time']").focus()
+		return false;
+		}
+
+	$(obj).attr('onclick', "");
+	$(obj).html('Please Wait....<i class="fa fa-angle-right" aria-hidden="true"></i>');
+	
+	$.ajax({
+			type: 'POST',
+			data:'{"mobile":"' + $("[name='mobile']").val() + '"}',
+			url: serverURL + "raj_generateOTP",
+			success: function (response) {	
+				if("Y" == response){
+					oTPSend($("[name='mobile']").val(),obj);
+				}else{
+					alert("Error while Sending OTP");
+					$(obj).attr('onclick', "saveMatrimonyData(this)");
+					$(obj).html('Save <i class="fa fa-angle-right" aria-hidden="true"></i>');
+				}
+			},
+			error: function (response) {
+				alert("Error while Login "+response);
+				checkErrorResp(response);
+				location.reload();
+			}
+		});	
+}
+
+function getMatrimonyDetails(obj){
+	var map={};
+	map["id"]=$(obj).attr('data-id');
+	fetchImageDetails($(obj).attr('data-id'),'image-sec');
+			//$("[name='mobile']").disabled = true
+			//alert("disable Mobile number:");
+	$.ajax({
+		type: 'POST',
+		data: JSON.stringify(map),
+		url: serverURL + "raj_fetchMatrimonyDetails",
+		success: function (response) {			
+			console.log(response);
+			for (var key in response) {
+			  if (response.hasOwnProperty(key)) {
+				$("[name='"+key+"']").val(response[key]);
+			  }
+			}
+			isedit = true;
+			$("html, body").animate({ scrollTop:  $("#contact").offset().top }, "slow");
+
+		},
+		error: function (response) {
+			alert("Error while updating data "+response);
+		}
+	});	
+}
+
+function fetchAllMatrimonyInfo(){
+	$.ajax({
+		type: 'POST',
+		url: serverURL + "raj_fetchAllMDetails",
+		success: function (response) {
+			$("#displayTableDetails tbody").empty();
+			console.log(response)
+			$(response).each(function(i,obj){				
+					var tr="<tr data-mobile='"+$(obj).attr('mobile')+"' data-name='"+$(obj).attr('name')+"'><td data-type='number'><a href='javascript:void(0)' data-id="+$(obj).attr('id')+" onClick='getCustDetails(this)'>"+(++i)+"</a></td><td>"+$(obj).attr('name')+" "+$(obj).attr('fname')+"<br>Gotra: "+$(obj).attr('gotra')+"</td><td>"+$(obj).attr('mobile')+"</td><td>"+$(obj).attr('address')+" City: "+$(obj).attr('city')+"</td><td>Age: "+$(obj).attr('age')+"<br>Gender: "+$(obj).attr('gender')+"</td><td>Email: "+$(obj).attr('email')+"<br>mobile: "+$(obj).attr('mobile')+"<br>Qualification: "+$(obj).attr('qualification')+"</td><td>mobile: "+$(obj).attr('mobile')+"<br>mobile: "+$(obj).attr('mobile')+"</td><td>mobile: "+$(obj).attr('mobile')+"<br>mobile: "+$(obj).attr('mobile')+"</td><td>"+$(obj).attr('remark')+"</td></tr>";
+					$("#displayTableDetails tbody").append(tr);	
+			});
+			
+			$("#loadingdiv").hide();
+		},
+		error: function (response) {
+			alert("Error while updating data "+response);
+			checkErrorResp(response);
+		}
+	});	
+}
+
+
+function oTPSendMatrimony(mobile,obj){
+	var otp = prompt("Please enter OTP Send to Mobile No. "+mobile);
+	 if (otp != null) {	
+		verifyOTPandSaveMatrimony(obj,otp,mobile);
+	 }else{
+		 $(obj).attr('onclick', "saveMatrimonyData(this)");
+		 $(obj).html('Save <i class="fa fa-angle-right" aria-hidden="true"></i>');
+	 }
+}
+
+function verifyOTPandSaveMatrimony(obj,otp,mobile){
+	$(obj).attr('onclick', "");
+	$(obj).html('Please Wait....<i class="fa fa-angle-right" aria-hidden="true"></i>');
+	
+	var custPic="";	
+	if($("#custPic-image").attr('src') != undefined && $("#custPic-image").attr('src') != ""){
+		custPic = $("#custPic-image").attr('src').split(',')[1];
+	}
+	var map = getFormData($("#formDataid"));
+	map["otp"]=otp;
+	map["custPic"]=custPic;
+	$.ajax({
+			type: 'POST',
+			data: JSON.stringify(map),
+			url: serverURL + "raj_saveMatrimonyData",
+			success: function (response) {	
+				if(response.startsWith("Sorry!")){
+					alert(response);	
+					oTPSendMatrimony(mobile,obj)
+				}else{
+					alert(response);
+					location.reload();
+				}				
+			},
+			error: function (response) {
+				alert("Error while Login "+response);
+				
+			}
+		});		
+}

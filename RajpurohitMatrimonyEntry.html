@@ -43,8 +43,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h2> <span> Rajpurohit </span> Samaj Bride-Groom entry details <br>
-                   <b>राजपुरोहित </b> समाज वर - वधू प्रवेश विवरण </h2>
+                <h4> <span> Rajpurohit </span> Samaj Bride-Groom entry details <br>
+                   <b>राजपुरोहित </b> समाज वर - वधू प्रवेश विवरण </h4>
                     <p></p>
                     <div class="card"><img  src="images/matrimony.png" width=850 height="230" alt=""></div>
                
@@ -61,8 +61,15 @@
 
         <div class="row">
             <div class="col-lg-6" id="contact" </div>
-                <h4> Data Entry </h4>
+                <h4> Matrimony Data Entry </h4>
 				<form id="formDataid">
+
+                <select name="gender" class="form-control" >
+                        <option value="-1"> Select </option> 
+                        <option value="Mr"> Mr. </option> 
+                        <option value="Miss">Miss</option>
+                </select>
+                   <br>
                 <input type="text" name="name" class="form-control" maxlength="30" placeholder="Full Name (नाम) *">
 				<input type="hidden" name="id">
                 <input type="text" name="mobile" class="form-control" maxlength="10" placeholder="Mobile Number (मोबाइल नंबर) *">
@@ -73,15 +80,13 @@
                 <input type="text" name="city" class="form-control" maxlength="30" placeholder="Cities/Towns/Villages Name (शहरों/कस्बों/गांवों का नाम) *">
                 <input type="text" name="gotra" class="form-control" maxlength="15" placeholder="Gotra (गोत्र) *">
                 
-                <h6>Date and Time of Birth (जन्म तिथि और समय) *</h6>
+                <h6>Date of Birth (जन्म तिथि और समय) *</h6>
                 <input type="date" name="age" class="form-control" placeholder=" Date of Birth (जन्म की तारीख)">
+
+                <h6>Time of Birth (जन्म समय) *</h6>
+                <input type="time" name="time" class="form-control" placeholder=" Time of Birth (जन्म समय)">
                 
-                <select name="gender" class="form-control" >
-                     <option value="-1"> Select Gender </option> 
-                     <option value="Male"> Male </option> 
-                     <option value="Female">Female</option>
-                </select>
-                <br>
+               
                 
                <input type="text" name="Height" class="form-control" maxlength="50" placeholder="Height (कद)">
                <input type="text" name="weight" class="form-control" maxlength="50" placeholder="weight (वजन)">
@@ -107,7 +112,7 @@
                     </div>
 			    </div>
 			
-                <a href="javascript:void(0)" onclick="saveCustData(this);" class="submit-button">Save <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                <a href="javascript:void(0)" onclick="saveMatrimonyData(this);" class="submit-button">Save <i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </div>
         </div>
 	</div>	</div>
@@ -123,11 +128,11 @@
 				<thead>
 					<th><a href="javascript:void(0)" style="cursor: pointer;">Sr No</a></th>
 					<th><a href="javascript:void(0)" style="cursor: pointer;">Full name/ Gotra</a></th>
-					<th><a href="javascript:void(0)" style="cursor: pointer;">Mobile No</a></th>
+					<th><a href="javascript:void(0)" style="cursor: pointer;">Mobile No/ Email</a></th>
+					<th><a href="javascript:void(0)" style="cursor: pointer;">Father & Mother name</a></th>
 					<th><a href="javascript:void(0)" style="cursor: pointer;">Address/City</a></th>
-					<th><a href="javascript:void(0)" style="cursor: pointer;">Age/Gender</a></th>
-					<th><a href="javascript:void(0)" style="cursor: pointer;">Email</a></th>
-					<th><a href="javascript:void(0)" style="cursor: pointer;">Height</a></th>
+					<th><a href="javascript:void(0)" style="cursor: pointer;">Date Of Birth and Time</a></th>
+					<th><a href="javascript:void(0)" style="cursor: pointer;">Height / weight</a></th>
 					<th><a href="javascript:void(0)" style="cursor: pointer;">Education/Job</a></th>
 					<th><a href="javascript:void(0)" style="cursor: pointer;">Remark</a></th>
 				</thead>
@@ -162,7 +167,7 @@
 <script src="js/config.js"></script>
 
 <script>
-fetchMatrimonyInfo();
+fetchAllMatrimonyInfo();
 initTableAttr();
 
 	var input2 = document.getElementById("custPic1");
