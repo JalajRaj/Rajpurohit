@@ -155,6 +155,8 @@ function getCustDetails(obj){
 	var map={};
 	map["id"]=$(obj).attr('data-id');
 	fetchImageDetails($(obj).attr('data-id'),'image-sec');
+			//$("[name='mobile']").disabled = true
+			//alert("disable Mobile number:");
 	$.ajax({
 		type: 'POST',
 		data: JSON.stringify(map),
@@ -168,6 +170,7 @@ function getCustDetails(obj){
 			}
 			isedit = true;
 			$("html, body").animate({ scrollTop:  $("#contact").offset().top }, "slow");
+
 		},
 		error: function (response) {
 			alert("Error while updating data "+response);
@@ -327,7 +330,7 @@ function resizeImageToSpecificWidth(imgPath,myInput) {
 		  var result = false;
 		  $('#displayTableDetails tbody tr').each(function(i,obj){
 			  if($(obj).attr('data-mobile').trim() == mobileNo.trim() && $(obj).attr('data-name').toUpperCase().trim() == name.toUpperCase().trim()){
-				  alert("Data for "+mobileNo+" and name already exists for row no "+(++i));
+				  alert("Data for "+mobileNo+" and name already exists at row no "+(++i));
 				  result = true;
 			  }		
 		  });
