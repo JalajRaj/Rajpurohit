@@ -32,7 +32,7 @@ var footerSection =  '<footer class="container-fluid" style="margin-top:130px;pa
             '</div>'+
         '</div>'+
 		'<div class="col-12">'+
-			'<p>All Rights Reserved. Design by - Jalaj Rajpurohit</p>'+
+			'<p>All Rights Reserved. Design by - Rajpurohit</p>'+
 		'</div>'+
     '</div>'+
 '</footer>';
