@@ -411,7 +411,7 @@ function saveMatrimonyData(obj){
 			url: serverURL + "raj_generateOTP",
 			success: function (response) {	
 				if("Y" == response){
-					oTPSend($("[name='mobile']").val(),obj);
+					oTPSendMatrimony($("[name='mobile']").val(),obj);
 				}else{
 					alert("Error while Sending OTP");
 					$(obj).attr('onclick', "saveMatrimonyData(this)");
@@ -488,7 +488,7 @@ function oTPSendMatrimony(mobile,obj){
 function verifyOTPandSaveMatrimony(obj,otp,mobile){
 	$(obj).attr('onclick', "");
 	$(obj).html('Please Wait....<i class="fa fa-angle-right" aria-hidden="true"></i>');
-	
+
 	var custPic="";	
 	if($("#custPic-image").attr('src') != undefined && $("#custPic-image").attr('src') != ""){
 		custPic = $("#custPic-image").attr('src').split(',')[1];
