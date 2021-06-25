@@ -111,10 +111,10 @@ setTimeout(function(){ $(".owl-dots").eq(1).find('button').eq(2).trigger('click'
      
      list.push("श्री वासुदेव जी (Mr. Vasudev),@100000,@A/c No. 039001002515,@13-May-2021");         
      list.push("श्री वागेश  जी (Mr. Vagesh),@21000,@A/c No. 039001002515,@22-May-2021");         
-     list.push("श्री विनोद जी (Mr. Vinod),@11000,@A/c No. 039001002515,@13-May-2021");         
+     list.push("श्री विनोद जी (Mr. Vinod),@51000,@A/c No. 039001002515,@13-May-2021");         
      list.push("श्री ईश्वर लाल जी (Mr. Ishwar lal),@11000,@A/c No. 039001002515,@12-May-2021");         
      list.push("श्री सुरेश जी (Mr. Suresh),@11000,@A/c No. 039001002515,@12-May-2021");         
-     list.push("श्री दीपक जी (Mr. Deepak),@11000,@A/c No. 039001002515,@12-May-2021");         
+     list.push("श्री दीपक जी (Mr. Deepak),@21000,@A/c No. 039001002515,@12-May-2021");         
      list.push("श्री दिलीप जी (Mr. Dilip),@11000,@A/c No. 039001002515,@14-May-2021");         
      list.push("श्री तरुण जी (Mr. Tarun),@11000,@A/c No. 039001002515,@12-May-2021");         
      list.push("श्री देवेंद्र जी (Mr. Devendra),@11000,@A/c No. 039001002515,@14-May-2021");         
@@ -138,8 +138,9 @@ setTimeout(function(){ $(".owl-dots").eq(1).find('button').eq(2).trigger('click'
      
            
      generateTable(list)
-
+     sortTable('displayTableDetails', 2);
      getAmtTotal()
+
     }
     
 
@@ -154,7 +155,7 @@ function generateTable(list){
         $("#displayTableDetails").append(tr);
         count++;
     });
-}
+} 
 
 
 </script>
@@ -188,6 +189,22 @@ function generateTable(list){
           });
         });
 </script>
+
+<script>
+function sortTable(table_id, sortColumn){
+    var tableData = document.getElementById(table_id).getElementsByTagName('tbody').item(0);
+    var rowData = tableData.getElementsByTagName('tr');            
+    for(var i = 0; i < rowData.length - 1; i++){
+        for(var j = 0; j < rowData.length - (i + 1); j++){
+            if(Number(rowData.item(j).getElementsByTagName('td').item(sortColumn).innerHTML.replace(/[^0-9\.]+/g, "")) < Number(rowData.item(j+1).getElementsByTagName('td').item(sortColumn).innerHTML.replace(/[^0-9\.]+/g, ""))){
+                tableData.insertBefore(rowData.item(j+1),rowData.item(j));
+            }
+        }
+    }
+}
+</script>
+
+
 
 </body>
 </html>
